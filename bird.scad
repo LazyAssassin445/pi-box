@@ -2,7 +2,7 @@
 color([1, 0, 0]) translate([12, 0, 0]) cube([194, 194, 12]);
 
 //back plank (blue)
-color([0, 0, 1]) translate([206, 0, 0]) cube([12, 194, 550]);
+color([0, 0, 1]) translate([206, -12, 0]) cube([12, 218, 550]);
 
 //front plank (green)
 color([0, 1, 0]) cube([12, 194, 234]);
@@ -32,25 +32,25 @@ color([0, 1, 1]) translate([0, 0, 0]) {
     //left side (from front)
     translate([0, -12, 0]) {
         //square section
-        cube([218, 12, 234]);
+        cube([206, 12, 234]);
         
         //triangle section
         translate([0, 12, 234])
         rotate(90, [1, 0, 0])
         linear_extrude(height = 12)
-        polygon([[0, 0], [218, 0], [218, 218]]);
+        polygon([[0, 0], [206, 0], [206, 218]]);
     }
     
     //right side (from front)
     translate([0, 194, 0]) {
         //square section
-        cube([218, 12, 234]);
+        cube([206, 12, 234]);
         
         //triangle section
         translate([0, 12, 234])
         rotate(90, [1, 0, 0])
         linear_extrude(height = 12)
-        polygon([[0, 0], [218, 0], [218, 218]]);
+        polygon([[0, 0], [206, 0], [206, 218]]);
         
     }
     
