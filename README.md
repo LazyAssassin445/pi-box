@@ -9,4 +9,10 @@ A wooden birdbox with some extra gadgets courtesy of the Raspberry Pi. (Camera, 
 pi@pibox:~ $ git clone https://github.com/LazyAssassin445/pi-box.git
 ```
 
-Ok now you have the repo on your pi (I need to finish the project first!!!)
+## Gathering the neccesary items
+### You Need
+* A Raspberry Pi 3
+* A Pi Camera
+* Infa red light
+* A scales set
+* 4 infa red sensors
