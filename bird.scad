@@ -4,8 +4,13 @@ color([1, 0, 0]) translate([12, 0, 0]) cube([194, 194, 12]);
 //back plank (blue)
 color([0, 0, 1]) translate([206, -12, 0]) cube([12, 218, 550]);
 
-//front plank (green)
-color([0, 1, 0]) cube([12, 194, 234]);
+difference() {
+	//front plank (green)
+	color([0, 1, 0]) cube([12, 194, 234]);
+	//hole
+	translate([-10, 97, 196.5]) rotate(90, [0, 1, 0])
+	    cylinder(44, 12.5, 12.5, false);
+};
 
 //top plank (red)
 color([1, 0, 0]) translate([0, 0, 234]) cube([206, 194, 12]);
@@ -22,8 +27,13 @@ translate([0,0,0]) {
     //back plank (green) 
     color([0, 1, 0]) translate([184, 34, 22]) cube([12, 150, 215]);
     
-    //front plank (blue)
-    color([0, 0, 1]) translate([22, 34, 22]) cube([12, 150, 215]);
+    difference() {
+	//front plank (blue)
+	color([0, 0, 1]) translate([22, 34, 22]) cube([12, 150, 215]);
+	//hole
+	translate([-10, 97, 196.5]) rotate(90, [0, 1, 0])
+	    cylinder(49, 12.5, 12.5, false);
+    };
 };
 
 //side planks (turquoise)
@@ -57,8 +67,3 @@ color([0, 1, 1]) translate([0, 0, 0]) {
     
 };
 
-
-//hole
-color([0, 0, 0]) translate([0, 97, 196.5]) 
-    rotate(90, [0, 1, 0])
-    cylinder(34, 12.5, 12.5, false);
