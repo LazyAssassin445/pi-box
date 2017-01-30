@@ -1,0 +1,11 @@
+#!//bin/sh
+
+sed '
+    /^\/\/.* EXPLODED/ {
+        s/^\/\/\s*//
+    }
+    /UNEXPLODED/ {
+        s/^/\/\//
+    }
+' < bird.scad > birddismantled.scad
+

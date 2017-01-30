@@ -9,18 +9,26 @@ difference() {
 	color([0, 1, 0]) cube([12, 150, 234]);
 	//hole
 	translate([-10, 75, 196.5]) rotate(90, [0, 1, 0])
-	    cylinder(44, 12.5, 12.5, false);
+	    cylinder(44, 12.5, 12.5, false, $fa=1);
 };
 
-//top plank (red)
-color([1, 0, 0]) translate([0, 0, 234]) cube([206, 150, 12]);
+difference() {
+    //top plank (red)
+    color([1, 0, 0]) translate([0, 0, 234]) cube([206, 150, 12]);
+    //window (perspex)
+    translate([206/3, 150/3, 233]) cube([206/3, 50, 14]);
+    //cable cut-out
+    translate([347, 75, 233]) cylinder(44, 150, 150, center=true, $fa=1);
+    
+};
 
 //top plank (yellow)
 color([1,1,0]) translate([-25, -12, 225]) rotate(45, [0,1,0]) cube([12, 174, 325]);
 
 //bird section
-translate([0,0,0]) {
-    
+translate([0, 0, 0]) // UNEXPLODED
+//translate([0, 400, 0]) // EXPLODED
+{   
     //bottom plank (yellow)
     translate([34, 0, 22]) cube([150, 150, 12]);
     
@@ -32,15 +40,15 @@ translate([0,0,0]) {
 	color([0, 0, 1]) translate([22, 0, 22]) cube([12, 150, 212]);
 	//hole
 	translate([-10, 75, 196.5]) rotate(90, [0, 1, 0])
-	    cylinder(49, 12.5, 12.5, false);
+	    cylinder(49, 12.5, 12.5, false, $fa=1);
     };
 };
 
 //side planks (turquoise)
-color([0, 1, 1]) translate([0, 0, 0]) {
-    
-    
-    
+color([0, 1, 1])
+translate([0, 0, 0]) // UNEXPLODED
+//translate([0, -400, 0]) // EXPLODED
+{
     //left side (from front)
     translate([0, 150, 0]) {
         //square section
@@ -65,7 +73,6 @@ color([0, 1, 1]) translate([0, 0, 0]) {
         linear_extrude(height = 12)
         polygon([[0, 0], [206, 0], [206, 206]]);
     }
-    
     
 };
 
