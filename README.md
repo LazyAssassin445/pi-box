@@ -14,5 +14,5 @@ pi@pibox:~ $ git clone https://github.com/LazyAssassin445/pi-box.git
 * A Raspberry Pi 3
 * A Pi Camera
 * Infa red light
-* A scales set
+* A weight sensitive resistor (specifically https://goo.gl/8EGmAL)
 * 4 infa red sensors
