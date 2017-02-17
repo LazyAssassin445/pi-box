@@ -13,3 +13,22 @@ OTHER PARTS:
     -Top Plank = 174mm x 325mm
 
 SIDE PARTS
+    -Plank = 206 x 440
+    -With this plank, cut a 45 degree angle from the top corner to 234mm off the bottom
+    
+    ie.
+
+            |\
+            |  \
+            |    \
+            |      \    
+            |        \
+            |          \
+            |            \
+     440mm  |             |
+            |             |
+            |             |  234mm
+            |             |
+            |             |
+            --------------- 
+                 206mm
