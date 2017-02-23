@@ -1,4 +1,6 @@
 
+import math as maths
+
 thickness = int(input("How thick is your wood in millimetres? "))
 overhang = int(input("How much do you want the top plank to overhang in millimetres? "))
 
@@ -12,21 +14,19 @@ birdbo2 = 150
 birdto1 = 150+20+(thickness*3)
 birdto2 = 150
 
+#work out side dimensions
+si1 = 440
+si2 = 150+20+(thickness*3)
 
-#work out main dimenstions
+#work out main dimensions
 fr1 = 222+thickness
 fr2 = 150
 ba1 = 538+thickness
 ba2 = 150+(2*thickness)
 bo1 = 150+20+(2*thickness)
 bo2 = 150
-to1 = 150+(2*thickness)
+to1 = round(maths.sqrt(2*(si2*si2)), 0)+overhang
 to2 = 150+20+(thickness*4)
-
-
-#work out side dimensions
-si1 = 440
-si2 = 150+20+(thickness*3)
 
 
 print("\nBIRD SECTION\n")
