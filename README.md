@@ -32,4 +32,4 @@ pi@pibox:~/pibox $ python3 dimensions.py
 ```
 
 You have to input the thickness of the wood and the amount of overhang you would like, After that the program will print out the dimensions of the wood you need to cut and a diagram of how to cut the side panels.
-### You might have to scroll up to see all of the dimensions/.
+You might have to scroll up to see all of the dimensions.
