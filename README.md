@@ -19,6 +19,7 @@ After you have done this type this command on it
 
 ```console
 pi@pibox:~ $ git clone https://github.com/LazyAssassin445/pi-box.git
+pi@pibox:~ $ pip3 install smbus2
 ```
 
 
@@ -33,3 +34,8 @@ pi@pibox:~/pibox $ python3 dimensions.py
 
 You have to input the thickness of the wood and the amount of overhang you would like, After that the program will print out the dimensions of the wood you need to cut and a diagram of how to cut the side panels.
 You might have to scroll up to see all of the dimensions.
+
+## Software
+### Files you might want to look at
+* https://cdn-learn.adafruit.com/downloads/pdf/adafruit-hdc1008-temperature-and-humidity-sensor-breakout.pdf
+* https://cdn-shop.adafruit.com/datasheets/hdc1008.pdf
