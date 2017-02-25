@@ -40,6 +40,7 @@ You might have to scroll up to see all of the dimensions. Now cut the wood. Look
 ### Files you might want to look at
 * https://cdn-learn.adafruit.com/downloads/pdf/adafruit-hdc1008-temperature-and-humidity-sensor-breakout.pdf
 * https://cdn-shop.adafruit.com/datasheets/hdc1008.pdf
+
 ### Software you might want to download
 * OpenSCAD (Used for the computer design of the birdbox) http://www.openscad.org/downloads.html
 * Fritzing (Used for the computer design of the circuit boards) http://fritzing.org/download/
