@@ -14,8 +14,9 @@ A wooden birdbox with some extra gadgets courtesy of the Raspberry Pi.
 * A lot of wire
 
 ## Setting up the raspberry pi
-Follow this link to set it up ...
-After you have done this type this command on it
+Get the software here - https://www.raspberrypi.org/downloads/raspbian/
+After it is downloaded, read this (https://www.raspberrypi.org/documentation/installation/installing-images/README.md) to learn how to put it onto your PI.
+Now do type these commands into the PI's terminal window
 
 ```console
 pi@pibox:~ $ git clone https://github.com/LazyAssassin445/pi-box.git
@@ -33,9 +34,12 @@ pi@pibox:~/pibox $ python3 dimensions.py
 ```
 
 You have to input the thickness of the wood and the amount of overhang you would like, After that the program will print out the dimensions of the wood you need to cut and a diagram of how to cut the side panels.
-You might have to scroll up to see all of the dimensions.
+You might have to scroll up to see all of the dimensions. Now cut the wood. Look at the OpenScad files to see how it fits together.
 
 ## Software
 ### Files you might want to look at
 * https://cdn-learn.adafruit.com/downloads/pdf/adafruit-hdc1008-temperature-and-humidity-sensor-breakout.pdf
 * https://cdn-shop.adafruit.com/datasheets/hdc1008.pdf
+### Software you might want to download
+* OpenSCAD (Used for the computer design of the birdbox) http://www.openscad.org/downloads.html
+* Fritzing (Used for the computer design of the circuit boards) http://fritzing.org/download/
