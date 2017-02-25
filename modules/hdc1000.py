@@ -4,7 +4,7 @@
 from pprint import pprint
 try:
 	import smbus2 as smbus
-except ModuleNotFoundError:
+except ImportError:
 	import smbus
 
 I2CADDR			= 0x40
@@ -42,7 +42,7 @@ def reset():
 		CONFIG_TRES_14 |
 		CONFIG_HRES_14
 	)
-	bus.write_word_data(I2CADDR, CONFIG, config)
+	bus.write_word_data(I2CADDR, CONFIG_REG, config)
 
 def triggerMeasurements():
 	bus.write_byte(I2CADDR, TEMP_REG)
