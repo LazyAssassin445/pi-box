@@ -1,6 +1,7 @@
 # Library for the temperature and humidity sensor
 #  ----> https://www.adafruit.com/products/2635
 
+import time
 from pprint import pprint
 try:
 	import smbus2 as smbus
@@ -44,22 +45,27 @@ def reset():
 	)
 	bus.write_word_data(I2CADDR, CONFIG_REG, config)
 
-def triggerMeasurements():
+def readSensors():
 	bus.write_byte(I2CADDR, TEMP_REG)
 
-def readTemperature():
-	vals = bus.read_i2c_block_data(I2CADDR, TEMP_REG)
-	pprint(vals)
+	time.sleep(0.05)
+
+	temp = bus.read_byte(I2CADDR)
+	temp << 8
+	temp |= bus.read_byte(I2CADDR)
+
+	hum = bus.read_byte(I2CADDR)
+	hum << 8
+	hum |= bus.read_byte(I2CADDR)
+
+	print(hex(temp))
+	print(hex(hum))
+
 	#float temp = (read32(HDC1000_TEMP, 20) >> 16);
 	#temp /= 65536;
 	#temp *= 165;
 	#temp -= 40;
 
-	#return temp;
-
-def readHumidity():
-	vals = bus.read_i2c_block_data(I2CADDR, HUMID_REG)
-	pprint(vals)
 	#float hum = (read32(HDC1000_TEMP, 20) & 0xFFFF);
 	#hum /= 65536;
 	#hum *= 100;
