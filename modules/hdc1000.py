@@ -3,10 +3,7 @@
 
 import time
 from pprint import pprint
-try:
-	import smbus2 as smbus
-except ImportError:
-	import smbus
+import i2c
 
 I2CADDR			= 0x40
 
@@ -14,7 +11,7 @@ TEMP_REG		= 0x00
 HUMID_REG		= 0x01
 CONFIG_REG		= 0x02
 
-CONFIG_RST		= (1 << 15)
+CONFIG_RESET		= (1 << 15)
 CONFIG_HEAT		= (1 << 13)
 CONFIG_MODE_SINGLE	= 0
 CONFIG_MODE_BOTH	= (1 << 12)
@@ -31,74 +28,55 @@ SERIAL3			= 0xFD
 MANUFID			= 0xFE
 DEVICEID		= 0xFF
 
-try:
-	bus = smbus.SMBus(1)
-except:
-	print("No I2C bus found.")
+bus = i2c.IIC(I2CADDR, 1)
 
-def reset():
+def reset(extra = 0):
 	config = (
-		CONFIG_RST |
-		CONFIG_MODE_BOTH |
+		CONFIG_RESET |
+		CONFIG_MODE_SINGLE |
 		CONFIG_TRES_14 |
-		CONFIG_HRES_14
+		CONFIG_HRES_14 |
+		extra
 	)
-	bus.write_word_data(I2CADDR, CONFIG_REG, config)
+	bus.i2c([CONFIG_REG, config >> 8], 0)
 
-def readSensors():
-	bus.write_byte(I2CADDR, TEMP_REG)
+def temperature():
+	# Request temperature measurement
+	bus.i2c([TEMP_REG], 0)
 
-	time.sleep(0.05)
+	time.sleep(0.2)
 
-	temp = bus.read_byte(I2CADDR)
-	temp << 8
-	temp |= bus.read_byte(I2CADDR)
+	data = bus.read(2)
+	temp = (data[0] << 8) | data[1]
+	#print(hex(temp))
+	return (temp / 65536.0) * 165.0 - 40
 
-	hum = bus.read_byte(I2CADDR)
-	hum << 8
-	hum |= bus.read_byte(I2CADDR)
+def humidity():
+	# Request humidity measurement
+	bus.i2c([HUMID_REG], 0)
 
-	print(hex(temp))
-	print(hex(hum))
+	time.sleep(0.2)
 
-	#float temp = (read32(HDC1000_TEMP, 20) >> 16);
-	#temp /= 65536;
-	#temp *= 165;
-	#temp -= 40;
-
-	#float hum = (read32(HDC1000_TEMP, 20) & 0xFFFF);
-	#hum /= 65536;
-	#hum *= 100;
-
-	#return hum;
+	data = bus.read(2)
+	hum = (data[0] << 8) | data[1]
+	#print(hex(hum))
+	return (hum / 65536.0) * 100.0
 
 def drySensor():
-	origconfig = bus.read_word_data(I2CADDR, CONFIG_REG)
-	newconfig = (
-		CONFIG_RST |
-		CONFIG_HEAT |
-		CONFIG_MODE_BOTH |
-		CONFIG_TRES_14 |
-		CONFIG_HRES_14
-	)
+	# Turn on the heater
+	reset(CONFIG_HEAT)
 
-	bus.write_word_data(I2CADDR, CONFIG_REG, newconfig)
+	# Take 1000 reading as fast as possible
+	# (the heater is only activated when performing a reading)
+	for x in range(10000):
+		try:
+			temperature()
+			time.sleep(0.1)
+		except: pass
 
-	sleep(0.1)
-
-	# Take 1000 readings
-	for x in range(0, 1000):
-		triggerMeasurements()
-		sleep(0.1)
-
-	sleep(0.1)
-
-	origconfig |= CONFIG_RST;
-	bus.write_word_data(I2CADDR, CONFIG_REG, origconfig)
+	# Turn off the heater
+	reset()
 
 def init():
 	reset()
-	manuf = bus.read_word_data(I2CADDR, MANUFID)
-	dev = bus.read_word_data(I2CADDR, DEVICEID)
-	print("Manufacturer:", manuf, "Device:", dev)
 
