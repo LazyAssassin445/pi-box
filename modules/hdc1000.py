@@ -38,7 +38,7 @@ def reset(extra = 0):
 		CONFIG_HRES_14 |
 		extra
 	)
-	bus.i2c([CONFIG_REG, config >> 8], 0)
+	bus.i2c([CONFIG_REG, config >> 8, config & 0xff], 0)
 
 def temperature():
 	# Request temperature measurement
@@ -68,10 +68,9 @@ def drySensor():
 
 	# Take 1000 reading as fast as possible
 	# (the heater is only activated when performing a reading)
-	for x in range(10000):
+	for x in range(1000):
 		try:
 			temperature()
-			time.sleep(0.1)
 		except: pass
 
 	# Turn off the heater
