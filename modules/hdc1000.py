@@ -39,6 +39,7 @@ def reset(extra = 0):
 		extra
 	)
 	bus.i2c([CONFIG_REG, config >> 8, config & 0xff], 0)
+	time.sleep(0.2)
 
 def temperature():
 	# Request temperature measurement
@@ -78,4 +79,9 @@ def drySensor():
 
 def init():
 	reset()
+
+def done():
+	global bus
+	bus.close()
+	del bus
 

@@ -1,1 +1,15 @@
-tests and stuff
+#!/usr/bin/python3
+
+import os, sys
+lib_path = os.path.abspath(os.path.join('..', 'modules'))
+sys.path.append(lib_path)
+
+import hdc1000
+
+hdc1000.init()
+
+print("Temperature: %.2f C" % hdc1000.temperature())
+print("Humidity: %.2f %%" % hdc1000.humidity())
+
+hdc1000.done()
+
