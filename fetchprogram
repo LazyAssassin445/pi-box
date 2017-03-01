@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+
+import os, sys
+lib_path = os.path.abspath(os.path.join('..', 'modules'))
+sys.path.append(lib_path)
+import hdc1000
+import weight
+hdc1000.init()
+
+while True:
+    sleep(60)
+    try:
+        temp = hdc.temperature()
+    except:
+        pass
+    try:
+        humid = hdc.humidity()
+    except:
+        pass
+    try:
+        weight = weight.readchannel(7)
+    except:
+        pass
+
+hdc1000.done()
+
