@@ -13,5 +13,5 @@ def readchannel(channel):
 	return data
 
 while True:
-	print(readchannel(7))
+	print(readchannel(0))
 	time.sleep(.5)

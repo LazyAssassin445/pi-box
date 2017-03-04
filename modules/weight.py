@@ -12,6 +12,3 @@ def readchannel(channel):
 	data = ((adc[1]&3)<<8) + adc[2]
 	return data
 
-while True:
-	print(readchannel(7))
-	time.sleep(.5)
