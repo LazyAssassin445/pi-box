@@ -4,14 +4,18 @@ import RPi.GPIO as GPIO
 import time
 import sys
 
+GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(23, GPIO.OUT)
 
 GPIO.output(23, 0)
 
 while True:
-    time.sleep(1)
+    time.sleep(5)
     GPIO.output(23, 1)
-    time.sleep(1)
+    print("on")
+    time.sleep(5)
     GPIO.output(23, 0)
+    print("off")
 
+GPIO.cleanup()
