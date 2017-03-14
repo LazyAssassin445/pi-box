@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+
+import RPi.GPIO as GPIO
+import time
+import sys
+
+def main():
+	gpio = int(input(""))
+	onoff = int(input(""))
+
+	GPIO.setwarnings(False)
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setup(gpio, GPIO.OUT)
+	GPIO.cleanup()
+
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setup(gpio, GPIO.OUT)
+
+	GPIO.output(gpio, onoff)
+	main()
+
+main()
