@@ -4,18 +4,24 @@ import RPi.GPIO as GPIO
 import time
 import sys
 
-GPIO.cleanup()
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(23, GPIO.OUT)
+gpio = int(input("What GPIO port would you like to test? "))
 
-GPIO.output(23, 0)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(gpio, GPIO.OUT)
+GPIO.cleanup()
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(gpio, GPIO.OUT)
+
+GPIO.output(gpio, 0)
 
 while True:
     time.sleep(5)
-    GPIO.output(23, 1)
+    GPIO.output(gpio, 1)
     print("on")
     time.sleep(5)
-    GPIO.output(23, 0)
+    GPIO.output(gpio, 0)
     print("off")
 
 GPIO.cleanup()
