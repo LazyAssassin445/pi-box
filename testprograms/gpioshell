@@ -8,24 +8,52 @@ GPIO.setmode(GPIO.BCM)
 GPIO.cleanup()
 
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 
 def main():
-    gpio = int(input(""))
-    onoff = int(input(""))
+	choice = str(input(""))
 
-    GPIO.setup(gpio, GPIO.OUT)
+	if choice == "on":
+		try:
+			which=input("")
+		except ValueError:
+			which=str(input(""))
 
-    GPIO.output(gpio, onoff)
+		if which != "all":
+			pin = int(which)
+			gpio = list()
+			gpio.append(pin)
+			GPIO.setup(gpio, GPIO.OUT)
+			GPIO.output(gpio, 1)
+		elif which == "all":
+			gpios = [23, 17, 18]
+			for i in gpios:
+				i = int(i)
+				GPIO.setup(i, GPIO.OUT)
+				GPIO.output(i, 1)
 
-    try:
-        main()
-    except KeyboardInterrupt:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(gpio, GPIO.OUT)
-        GPIO.cleanup()
+	if choice == "off":
+		try:
+			which=input("")
+			print(which)
+		except ValueError:
+			which=str(input(""))
+			print(which)
 
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(gpio, GPIO.OUT)
-        
+		if which != "all":
+			pin = int(which)
+			gpio = list()
+			gpio.append(pin)
+			GPIO.setup(gpio, GPIO.OUT)
+			GPIO.output(gpio, 0)
+		elif which == "all":
+			gpios = [23, 17, 18]
+			for i in gpios:
+				i = int(i)
+				GPIO.setup(i, GPIO.OUT)
+				GPIO.output(i, 0)
+
+	main()
 
 main()
+
