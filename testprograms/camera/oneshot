@@ -4,8 +4,9 @@ from time import sleep
 
 camera = PiCamera()
 
+location = str(input("Where would you like to save this image? "))
 camera.start_preview()
 sleep(5)
-camera.capture('pics/image.jpg')
+camera.capture('pics/' + location)
 camera.stop_preview()
 
