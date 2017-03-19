@@ -72,22 +72,32 @@ You can install OpenSCAD (http://www.openscad.org/downloads.html) to look at the
 #### Assembling
 #### Assembling the Distribution Board
 First cut all of the nessesary tracks like so ...
+
 ![distributionboardbreadboard](/doc/circuitboards/distributionboardbreadboard.png)
+
 Then solder on the wires and the sockets (UART is the 3 pin header, not the plug), then the cobbler.
+
 ![distributionboard](/doc/circuitboards/distributionboard.png)
 
 #### Assembling the Force Sensor Board
 First cut all the tracks needed
+
 ![forceboardbreadboard](/doc/circuitboards/forceboardbreadboard.png)
+
 Then solder on the wires, the IC socket, the variable resistor and the plugs (2 pin)
+
 ![forceboard](/doc/circuitboards/forceboard.png)
 
 #### Assembling the LED Boards
 First cut all the tracks needed
+
 ![ledboardbreadboard](/doc/circuitboards/ledboardbreadboard.png)
+
 After that solder on the resistors, the connectors and the NPN transistor
 ### THEN SOLDER THE LEDS ON ON THE OTHER SIDE OF THE STRIP BOARD
+
 ![ledboard](/doc/circuitboards/ledboard.png)
+
 (not 100% accurate)
 
 
