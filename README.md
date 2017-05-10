@@ -69,6 +69,12 @@ You can install OpenSCAD (http://www.openscad.org/downloads.html) to look at the
 * 1 16 pin IC socket
 * 1 MCP 3008 ADC chip
 
+#### For The POE Board You Need
+* Strip board
+* A buck converter
+* A barrel connector
+* A female USB type A socket
+
 #### Assembling
 #### Assembling the Distribution Board
 First cut all of the nessesary tracks like so ...
