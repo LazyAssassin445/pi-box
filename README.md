@@ -2,7 +2,8 @@
 
 # Raspberry Pi Birdbox
 A wooden birdbox with some extra gadgets courtesy of the Raspberry Pi.
-# Sorry for all of the really messy code
+
+![box](/doc/box.png)
 
 ## Setting up the raspberry pi
 Now you have your Raspberry Pi you need to put software on it. Go the this link https://www.raspberrypi.org/downloads/raspbian/ to download the latest copy of Raspbian
