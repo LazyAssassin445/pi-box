@@ -6,7 +6,7 @@ A wooden birdbox with some extra gadgets courtesy of the Raspberry Pi.
 ![box](/doc/box.png)
 
 ## Setting up the raspberry pi
-Now you have your Raspberry Pi you need to put software on it. Go the this link https://www.raspberrypi.org/downloads/raspbian/ to download the latest copy of Raspbian
+Now you have your Raspberry Pi you need to put software on it. Go to this link https://www.raspberrypi.org/downloads/raspbian/ to download the latest copy of Raspbian
 After it has downloaded, follow this link (https://www.raspberrypi.org/documentation/installation/installing-images/README.md) to learn how to install it onto your Pi
 When you first boot up your pi it will come up with a login window, your login details are as follows
 Username: pi
@@ -34,6 +34,8 @@ You might have to scroll up to see all of the dimensions. Now cut the wood.
 #### Assembling the birdbox
 
 You can install OpenSCAD (http://www.openscad.org/downloads.html) to look at the digital version of how the wood fits together.
+
+![box](/doc/exploded.png)
 
 ### Electronics
 #### What You Need
